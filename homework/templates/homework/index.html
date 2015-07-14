@@ -1,0 +1,54 @@
+{%load staticfiles%}
+<link rel="stylesheet" type="text/css" href="{% static 'homework/style.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'homework/pure-min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'homework/grids-responsive-min.css' %}">
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="header">
+            <h1 class="brand-title">Homework Reminder</h1>
+            <h2 class="brand-tagline">So you won't miss out anything</h2>
+            
+            <br>
+            <h3 class="brand-tagline">HTML and CSS courtesy of</h3>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a class="pure-button" href="http://purecss.io">Pure</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="http://yuilibrary.com">YUI Library</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+{% if homeworks %}
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            <h1 class="content-subhead">Remember to do your homeworks!</h1>
+            {% for homework in homeworks %}
+                <div class="posts">
+                    <section class="post">
+                        <header class="post-header">
+                            <a href="{% url 'detail' homework.id %}"><p class="post-title">{{homework.name}}</p></a>
+
+                            <p class="post-meta">
+                                <a class="post-author">Given: {{homework.given_date}}, Due: {{homework.due_date}}</a>
+                                <a class="post-category post-category-design" href="#">{{homework.subject}}</a>
+                            </p>
+                        </header>
+                        <div class="post-description">
+                            <p>{{homework.description}}</p>
+                        </div>
+                    </section>
+                </div>
+                <h1 class="content-subhead"></h1>
+            {% endfor %}
+        </div>
+        
+    {%endif%}
+        
+                    
+        
