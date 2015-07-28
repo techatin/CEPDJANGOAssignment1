@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 
 # Create your models here.
 
@@ -16,5 +17,12 @@ class Homework(models.Model):
     given_date = models.DateField()
     due_date = models.DateField()
     
+    created = models.DateTimeField(auto_now_add=True, auto_now=False, null=True)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True, null=True)
+
+    
     def __str__(self):
         return self.name
+    
+    def get_absolute_url(self):
+        return reverse("detail", kwargs={"id":self.pk})
