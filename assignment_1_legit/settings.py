@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'homework',
     'crispy_forms',
     'bootstrap3',
+    'accounts',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -56,6 +57,8 @@ ROOT_URLCONF = 'assignment_1_legit.urls'
 
 WSGI_APPLICATION = 'assignment_1_legit.wsgi.application'
 
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/index/'
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases

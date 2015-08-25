@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.urlresolvers import reverse
+from accounts.models import UserProfile
 
 # Create your models here.
 
@@ -13,6 +14,7 @@ class Homework(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(default='A homework to be done')
     subject = models.ForeignKey(Subject)
+    user = models.ForeignKey(UserProfile, blank=True, null=True)
     
     given_date = models.DateField()
     due_date = models.DateField()

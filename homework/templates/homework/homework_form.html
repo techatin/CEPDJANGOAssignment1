@@ -22,10 +22,13 @@
      <div class="col-md-6">
 
     {%if object%}
-        <h1>Update {{object.title}}</h1>
+        <h1>Update {{object.name}}</h1>
     {%else%}
-        <h1>Create a New Note</h1>
+        <h1>Create a New Homework</h1>
     {%endif%}
+    
+    
+    
     {% crispy form %}
 	</div>
 

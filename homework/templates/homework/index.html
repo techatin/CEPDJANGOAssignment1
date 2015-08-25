@@ -2,8 +2,103 @@
 <link rel="stylesheet" type="text/css" href="{% static 'homework/style.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'homework/pure-min.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'homework/grids-responsive-min.css' %}">
+<link rel="stylesheet" type='text/css' href="{% static 'homework/font-awesome-min.css' %}">
+
+<head>
+    <title>TRACKERINO &ndash; {{username}} </title>
+
+<style>
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+a {
+    text-decoration: none;
+    color: rgb(61, 146, 201);
+}
+a:hover,
+a:focus {
+    text-decoration: underline;
+    filter: none;
+}
+
+.pure-button{
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+}
+
+.post-header .pure-button{
+    background: transparent;
+    border: 2px solid rgb(176, 202, 219);
+    color: #444;
+    margin: 0.5em;
+    margin-left:  0;
+    margin-bottom: 1em;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 85%;
+}
+
+.post-header .pure-button:hover,
+.post-header .pure-button:focus{
+    border: 2px solid rgb(61, 146, 201);
+    text-decoration: none;
+
+}
+
+.pure-menu-horizontal{
+    letter-spacing: 0;
+}
+
+img{
+    width: 30px;
+    height: 30px;
+}
+
+.pure-menu-heading{
+    float: left;
+    padding-top: 0;
+    padding-bottom: 0;
+    border: 0;
+    margin:0;
+}
+img,
+#greeting, .pure-menu-item a{
+    float:right;
+}
+
+.pure-menu-horizontal .pure-menu-item pure-menu-link{
+    text-align: right;
+    height: 0px;
+}
+
+.content-subhead{
+    margin: 2em;
+}
+
+</style>
 
 <div id="layout" class="pure-g">
+    
+    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+            <a class="pure-menu-heading" href="{%  url 'homework_list' '' %}">TrackeRIno</a>
+            {% if curruser.picture %}
+                <img src="../{{curruser.picture}}">
+            {% endif %}
+            <p class="pure-menu-heading" id="greeting">Welcome, {{username}}</p>
+            
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="{% url 'logout'%}" class="pure-menu-link">Log Out</a></li>
+            </ul>
+            
+
+    </div>
+    
     <div class="sidebar pure-u-1 pure-u-md-1-4">
         <div class="header">
             <h1 class="brand-title">Homework Reminder</h1>
@@ -19,24 +114,37 @@
                     <li class="nav-item">
                         <a class="pure-button" href="http://yuilibrary.com">YUI Library</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="pure-button" href="{% url 'homework_add' %}">Add Homework</a>
+                    </li>
                 </ul>
             </nav>
-        </div>
-    </div>
+            </div>
+            
+
     
-{% if object_list %}
+</div>
+
+</div>
+    
+
     <div class="content pure-u-1 pure-u-md-3-4">
+        
+        <h1 class="content-subhead">Remember to do your homeworks!</h1>
+        
+        {% if object_list %}
         <div>
-            <h1 class="content-subhead">Remember to do your homeworks!</h1>
             {% for homework in object_list %}
                 <div class="posts">
                     <section class="post">
                         <header class="post-header">
-                            <a href="{% url 'detail' homework.id %}"><p class="post-title">{{homework.name}}</p></a>
+                            <a href= "{% url 'detail' homework.id %}" ><p class="post-title">{{homework.name}}</p></a>
+                            <a href= "{% url 'homework_update' homework.pk %}" class='pure-button'>Update Homework</a>
+                            <a href= "{% url 'homework_delete' homework.pk %}" class='pure-button'>Delete Homework</a>
 
                             <p class="post-meta">
                                 <a class="post-author">Given: {{homework.given_date}}, Due: {{homework.due_date}}</a>
-                                <a class="post-category post-category-design" href="#">{{homework.subject}}</a>
+                                <a class="post-category post-category-design" href="{% url 'homework_list' homework.subject %}">{{homework.subject}}</a>
                             </p>
                         </header>
                         <div class="post-description">

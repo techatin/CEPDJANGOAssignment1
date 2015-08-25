@@ -1,0 +1,46 @@
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+<head>
+  <title>
+    {%block title%}
+	To be replaced by actual page title
+    {%endblock%}
+  </title>
+</head>
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery=1%}
+</head>
+<body>
+{%block content%}
+	<div class="mynavbar">
+        <ul class="nav nav-tabs navbar-right">
+              <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">
+                  {%if user.is_authenticated%}
+                      <img src="/media/{{curruser.picture}}" height="30px" %} />
+                      Hi {{user.username}}!
+                  {%else%}
+                      Login here!
+                  {%endif%}
+                  
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  {%if user.is_authenticated%}
+                      <li><a href="/accounts/logout">Logout</a></li>
+                      <li><a href="/add">Add a new note</a></li>
+                      <li><a href="/list">View all my notes</a></li>
+                  {%else%}
+                      <li><a href="/accounts/login">Login</a></li>
+                  {%endif%}
+                
+                      
+                </ul>
+              </li>
+            </ul>
+</div>
+
+{%endblock%}
+</body>

@@ -1,0 +1,137 @@
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A layout example that shows off a responsive product landing page.">
+
+    <title>TRACKERINO</title>
+
+    
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'homework/marketing.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'homework/pure-min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'homework/grids-responsive-min.css' %}">
+
+
+    
+
+    
+
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+<div class="header">
+    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+        <a class="pure-menu-heading" href="">TrackeRIno</a>
+
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item"><a href="{% url 'login'%}" class="pure-menu-link">Sign In</a></li>
+            <li class="pure-menu-item"><a href="{% url 'register' %}" class="pure-menu-link">Sign Up</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="splash-container">
+    <div class="splash">
+        <h1 class="splash-head">I <3 Homework</h1>
+        <p class="splash-subhead">
+            Says no one ever
+        </p>
+        <p>
+            <a href="/accounts/register/" class="pure-button pure-button-primary">Get Started</a>
+        </p>
+    </div>
+</div>
+
+<div class="content-wrapper">
+    <div class="content">
+        <h2 class="content-head is-center">TrackeRIno - Your choice of homework tracker</h2>
+
+        <div class="pure-g">
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+
+                <h3 class="content-subhead">
+                    <i class="fa fa-rocket"></i>
+                    Get Started Quickly
+                </h3>
+                <p>
+                    Intuitive user-interface makes TrackeRIno extremely easy to use. At least it is easier than physics 
+                    <br>#phailphysicsMYCT
+                </p>
+            </div>
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                <h3 class="content-subhead">
+                    <i class="fa fa-mobile"></i>
+                    Responsive Layouts
+                </h3>
+                <p>
+                    You can use it on ANY DEVICE. Yes, any device, EVEN ON YOUR PREHISTORIC GAMEBOY (if it has internet access). <- *hint hint disclaimer
+                </p>
+            </div>
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                <h3 class="content-subhead">
+                    <i class="fa fa-th-large"></i>
+                    Beautiful
+                </h3>
+                <p>
+                    Powered by YUI LIBRARY and PURE.IO, TrackeRIno is extremely beautiful. <- *hint hint credit
+                </p>
+            </div>
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                <h3 class="content-subhead">
+                    <i class="fa fa-check-square-o"></i>
+                    Smokin' good
+                </h3>
+                <p>
+                    This is pure smoke because I cannot think of anything better. BUT TrackeRIno IS AWESOME! I R8 8/8!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="ribbon l-box-lrg pure-g">
+        <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+            <img class="pure-img-responsive" alt="File Icons" width="300" src="{% static 'homework/file-icons.png' %}">
+        </div>
+        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
+
+            <h2 class="content-head content-head-ribbon">Hear from our user.</h2>
+
+            <p>
+                I immediately fell in love with the application. It is beautiful! I managed to beat
+                procrastination just by staring at the app! The coder must be genius! I personally
+                would r8 8/8 for this app as there is no h8. Anyway, this is life-changing!
+                
+                <br>
+                -<del>The genius coder </del>    
+                <br>-a randomly interviewed individual
+            </p>
+        </div>
+    </div>
+
+
+       
+
+    <div class="footer l-box is-center">
+        Made with PURE, YUI, DJANGO, C9 and <3
+    </div>
+
+</div>
+
+
+
+
+
+
+</body>
+</html>

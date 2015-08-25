@@ -10,6 +10,7 @@ class HomeworkForms(forms.ModelForm):
     
     class Meta:
         model = Homework
+        fields = ("name", 'description', 'subject', 'given_date', 'due_date')
         
     helper = FormHelper()
     helper.form_method = 'POST'
